@@ -1,0 +1,18 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv0001
+  labels:
+    type: local
+spec:
+  storageClassName: ''
+  capacity:
+    storage: 10Gi
+  claimRef:
+    namespace: default
+    name: claim-postgres
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    fsType: 'ext4'
+    pdName: 'sonar-postgres-pd'
